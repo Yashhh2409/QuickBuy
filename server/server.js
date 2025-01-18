@@ -16,7 +16,7 @@ connectCloudinary();
 
 // to fix cors problem in vercel
 const corsOptions = {
-    origin: 'https://quickbuy-wheat.vercel.app', // Your client domain
+    origin: '*', // Your client domain
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
 };
