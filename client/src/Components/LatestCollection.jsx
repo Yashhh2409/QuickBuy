@@ -25,8 +25,8 @@ const LatestCollection = () => {
         </p>
       </div>
 
-      {/* Products Container */}
-      <div className="flex overflow-x-auto gap-5 py-4 px-2">
+      {/* Products Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 gap-y-6">
         {latestProducts.length > 0 ? (
           latestProducts.map((item, idx) => (
             <ProductItem
@@ -38,7 +38,7 @@ const LatestCollection = () => {
             />
           ))
         ) : (
-          <p className="text-center text-gray-500">
+          <p className="col-span-full text-center text-gray-500">
             No products available in the latest collection.
           </p>
         )}
