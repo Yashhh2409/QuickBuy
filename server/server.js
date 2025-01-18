@@ -20,8 +20,8 @@ app.use(express.urlencoded({extended: true}))
 app.use(cors({
   origin: [
     "https://quickbuy-ten.vercel.app",  
-    "https://quickbuy-admin-iota.vercel.app/", 
-    "https://quickbuy-admin-cu3bucshu-yash-dhandes-projects.vercel.app/" 
+    "https://quickbuy-admin-iota.vercel.app", 
+    "https://quickbuy-admin-cu3bucshu-yash-dhandes-projects.vercel.app" 
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
   allowedHeaders: ['Content-Type', 'Authorization', 'token'],
