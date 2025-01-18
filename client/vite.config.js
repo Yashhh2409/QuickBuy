@@ -11,5 +11,13 @@ export default defineConfig({
   },
   server: {
     port: 5173,
+    proxy: {
+      '/api': {
+        target: 'https://quickbuy-server.vercel.app', // Your backend URL
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''), // Rewrite the /api path if needed
+      },
+    },
   },
 });
