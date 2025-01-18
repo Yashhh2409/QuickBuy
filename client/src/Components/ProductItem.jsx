@@ -1,20 +1,34 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { ShopContext } from '../context/ShopContext'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { ShopContext } from '../context/ShopContext';
 
-const ProductItem = ({id, image, name, price}) => {
-
-    const { currency } = useContext(ShopContext)
+const ProductItem = ({ id, image, name, price }) => {
+  const { currency } = useContext(ShopContext);
 
   return (
-    <Link className='text-gray-700 cursor-pointer p-2' to={`/product/${id}`}>
-      <div className="overflow-hidden rounded-lg">
-        <img className='hover:scale-110 transition ease-in-out' src={image[0]} alt="" />
+    <Link
+      className="text-gray-700 cursor-pointer p-4 border rounded-lg hover:shadow-lg transition-all flex flex-col items-center"
+      to={`/product/${id}`}
+    >
+      {/* Image Container */}
+      <div className="overflow-hidden rounded-lg h-48 w-48 flex items-center justify-center bg-gray-100">
+        <img
+          className="h-full object-contain transition-transform duration-200 hover:scale-110"
+          src={image[0]}
+          alt={name}
+        />
       </div>
-      <p className='pt-3 pb-1 text-sm'>{name}</p>
-      <p className='text-sm font-medium'>{currency}{price}</p>
-    </Link>
-  )
-}
 
-export default ProductItem
+      {/* Product Name */}
+      <p className="pt-3 pb-1 text-sm font-medium text-center truncate">{name}</p>
+
+      {/* Product Price */}
+      <p className="text-sm font-semibold text-center">
+        {currency}
+        {price}
+      </p>
+    </Link>
+  );
+};
+
+export default ProductItem;
