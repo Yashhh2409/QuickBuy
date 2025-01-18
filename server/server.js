@@ -14,17 +14,14 @@ const PORT = process.env.PORT || 5000
 connectDB(); // Database Connection
 connectCloudinary();
 
-// to fix cors problem in vercel
-const corsOptions = {
-    origin: ['https://quickbuy-nu.vercel.app', 'https://quickbuy-admin-delta.vercel.app'],
-    methods: 'GET,POST,PUT,DELETE',
-    allowedHeaders: ['Content-Type', 'Authorization', 'token'],
-};
-
 // middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(cors(corsOptions));
+app.use(cors({
+     origin: ["https://quickbuy-ten.vercel.app", "https://quickbuy-admin-iota.vercel.app/"],
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: ['Content-Type', 'Authorization', 'token'],
+})); 
 
 // api endpoints
 app.use('/api/user', userRouter)
