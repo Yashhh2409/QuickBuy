@@ -8,7 +8,7 @@ import Orders from "./pages/Orders";
 import Login from "./components/Login";
 import { ToastContainer, toast } from "react-toastify";
 
-export const backendURL = "https://quickbuy-server.onrender.com";
+export const backendURL = "https://quickbuy-server.vercel.app";
 export const currency = "₹"
 
 const App = () => {
