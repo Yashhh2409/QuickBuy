@@ -9,7 +9,7 @@ const Hero = () => {
     { src: assets.modelThree, alt: "Denim Collection" },
     { src: assets.modelFour, alt: "Casual Wear Collection" },
     { src: assets.modelFive, alt: "Classic Summer Outfit" },
-    { src: assets.modelSix, alt: "Glamorous Sequin Party Dress" },
+    { src: assets.modelSix, alt: "Glamorous Party Dress" },
     { src: assets.modelSeven, alt: "Trendy Accessories" },
     { src: assets.modelEight, alt: "Formal Office Wear" },
   ];
