@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 
 const connectDB = async () => {
-  await mongoose
-    .connect(`${process.env.connectionURL}`)
-    .then(() => {
-      console.log("Database connected successfully");
-    })
-    .catch((error) => {
-      console.error("unable to connect Database", error);
-    });
+
+  mongoose.connection.on('connected', () => {
+    console.log("Database connected successfully.");
+    
+  })
+
+  await mongoose.connect(`${process.env.MONGODB_URL}/QuickBuyDB`)
 };
 
 module.exports = connectDB;
