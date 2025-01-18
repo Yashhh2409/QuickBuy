@@ -8,17 +8,23 @@ const productRouter = require('./routes/productRoute')
 const cartRouter = require('./routes/cartRoute')
 const orderRouter = require('./routes/orderRoute')
 
-
 // app config
 const app = express()
 const PORT = process.env.PORT || 5000
 connectDB(); // Database Connection
 connectCloudinary();
 
+// to fix cors problem in vercel
+const corsOptions = {
+    origin: 'https://quickbuy-wheat.vercel.app', // Your client domain
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type, Authorization',
+};
+
 // middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(cors())
+app.use(cors(corsOptions));
 
 // api endpoints
 app.use('/api/user', userRouter)
