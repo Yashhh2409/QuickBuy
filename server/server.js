@@ -28,6 +28,7 @@ app.use(cors({
 }));
 
 
+app.options('*', cors());
 
 // api endpoints
 app.use('/api/user', userRouter)
