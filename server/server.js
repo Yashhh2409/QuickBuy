@@ -19,13 +19,12 @@ const corsOptions = {
     origin: ['https://quickbuy-ten.vercel.app', 'https://quickbuy-admin-iota.vercel.app'],
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: ['Content-Type', 'Authorization', 'token'],
-     credentials: true,
 };
 
 // middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); 
 
 // api endpoints
 app.use('/api/user', userRouter)
