@@ -1,15 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Title from './Title';
-import ProductItem from './ProductItem';
-import { Link } from 'react-router-dom';
-import { ShopContext } from '../context/ShopContext';
+import React, { useContext, useEffect, useState } from "react";
+import Title from "./Title";
+import ProductItem from "./ProductItem";
+import { Link } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
+
   const [latestProducts, setLatestProducts] = useState([]);
 
   useEffect(() => {
-    setLatestProducts(products.slice(0, 10)); // Fetch the latest 10 products
+    if (products && products.length > 0) {
+      setLatestProducts(products.slice(0, 10)); // Fetch only the latest 10 products
+    }
   }, [products]);
 
   return (
@@ -23,16 +26,22 @@ const LatestCollection = () => {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-        {latestProducts.map((item, idx) => (
-          <ProductItem
-            key={idx}
-            id={item._id}
-            image={item.image}
-            name={item.name}
-            price={item.price}
-          />
-        ))}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 gap-y-6">
+        {latestProducts.length > 0 ? (
+          latestProducts.map((item, idx) => (
+            <ProductItem
+              key={item._id || idx} // Prefer a unique key if available
+              id={item._id}
+              image={item.image}
+              name={item.name}
+              price={item.price}
+            />
+          ))
+        ) : (
+          <p className="col-span-full text-center text-gray-500">
+            No products available in the latest collection.
+          </p>
+        )}
       </div>
 
       {/* View All Products Button */}
