@@ -19,6 +19,7 @@ const corsOptions = {
     origin: ['https://quickbuy-ten.vercel.app', 'https://quickbuy-admin-iota.vercel.app'],
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: ['Content-Type', 'Authorization', 'token'],
+     credentials: true,
 };
 
 // middlewares
