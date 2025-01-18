@@ -18,10 +18,18 @@ connectCloudinary();
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cors({
-     origin: ["https://quickbuy-ten.vercel.app", "https://quickbuy-admin-iota.vercel.app/"],
-    methods: 'GET,POST,PUT,DELETE',
-    allowedHeaders: ['Content-Type', 'Authorization', 'token'],
-})); 
+  origin: [
+    "https://quickbuy-ten.vercel.app",  
+    "https://quickbuy-admin-iota.vercel.app", 
+    "https://quickbuy-admin-cu3bucshu-yash-dhandes-projects.vercel.app" 
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization', 'token'],
+  credentials: true, 
+}));
+
+
+app.options('*', cors());
 
 // api endpoints
 app.use('/api/user', userRouter)
